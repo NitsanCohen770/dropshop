@@ -31,6 +31,8 @@
     "styled-reset": "^4.3.4"
   },
   "devDependencies": {
+    "@iconify-icons/fa": "^1.1.0",
+    "@iconify/react": "^1.1.4",
     "prettier": "2.3.0"
   },
   "keywords": [

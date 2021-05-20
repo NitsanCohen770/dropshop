@@ -4,6 +4,8 @@ import { graphql } from 'gatsby';
 import { Layout, ImageGallery, ProductQuantityAdder } from '../../components';
 import { Grid, SelectWrapper, Price } from './styles';
 import CartContext from '../../context/CartContext';
+import { Icon } from '@iconify/react';
+import ilsIcon from '@iconify-icons/fa/ils';
 import { navigate, useLocation } from '@reach/router';
 import queryString from 'query-string';
 
@@ -56,12 +58,6 @@ const ProductTemplate = props => {
     <Layout>
       <Grid>
         <div>
-          <ImageGallery
-            selectedVariantId={selectedVariant?.image.id}
-            images={props.data.shopifyProduct.images}
-          />
-        </div>
-        <div>
           <h1>{props.data.shopifyProduct.title}</h1>
           <p>{props.data.shopifyProduct.description}</p>
           {product?.availableForSale && !!selectedVariant && (
@@ -88,7 +84,7 @@ const ProductTemplate = props => {
                   <Price>
                     {selectedVariant?.priceV2.amount}
                     {'      '}
-                    {selectedVariant?.priceV2.currencyCode}
+                    <Icon icon={ilsIcon} />
                     <ProductQuantityAdder
                       variantId={selectedVariant.id}
                       available={selectedVariant.available}
@@ -98,6 +94,12 @@ const ProductTemplate = props => {
               )}
             </>
           )}
+        </div>
+        <div>
+          <ImageGallery
+            selectedVariantId={selectedVariant?.image.id}
+            images={props.data.shopifyProduct.images}
+          />
         </div>
       </Grid>
     </Layout>
