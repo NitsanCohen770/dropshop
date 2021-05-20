@@ -25,7 +25,7 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-source-shopify2',
+      resolve: 'gatsby-source-shopify',
       options: {
         shopName: process.env.GATSBY_SHOP_NAME,
         accessToken: process.env.GATSBY_ACCESS_TOKEN,

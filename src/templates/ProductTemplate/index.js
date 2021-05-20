@@ -1,7 +1,7 @@
 /* eslint-disable  jsx-a11y/no-onchange */
 import React, { useContext, useEffect, useState } from 'react';
 import { graphql } from 'gatsby';
-import { Layout, ImageGallery } from '../../components';
+import { Layout, ImageGallery, ProductQuantityAdder } from '../../components';
 import { Grid, SelectWrapper, Price } from './styles';
 import CartContext from '../../context/CartContext';
 import { navigate, useLocation } from '@reach/router';
@@ -43,6 +43,7 @@ const ProductTemplate = props => {
   }, [getProductById, props.data.shopifyProduct.shopifyId, variantId]);
 
   const handleVariantChange = event => {
+    event.preventDefault();
     const newVariant = product?.variants.find(v => v.id === event.target.value);
     setSelectedVariant(newVariant);
     navigate(
@@ -55,37 +56,49 @@ const ProductTemplate = props => {
     <Layout>
       <Grid>
         <div>
+          <ImageGallery
+            selectedVariantId={selectedVariant?.image.id}
+            images={props.data.shopifyProduct.images}
+          />
+        </div>
+        <div>
           <h1>{props.data.shopifyProduct.title}</h1>
           <p>{props.data.shopifyProduct.description}</p>
           {product?.availableForSale && !!selectedVariant && (
             <>
-              <SelectWrapper>
-                <strong>Variant</strong>
-                <select
-                  value={selectedVariant.id}
-                  onChange={handleVariantChange}
-                >
-                  {product?.variants.map(v => {
-                    return (
-                      <option key={v.id} value={v.id}>
-                        {v.title}
-                      </option>
-                    );
-                  })}
-                </select>
-              </SelectWrapper>
+              {product?.variants.length > 1 && (
+                <SelectWrapper>
+                  <strong>Variant</strong>
+                  <select
+                    value={selectedVariant.id}
+                    onChange={handleVariantChange}
+                  >
+                    {product?.variants.map(v => {
+                      return (
+                        <option key={v.id} value={v.id}>
+                          {v.title}
+                        </option>
+                      );
+                    })}
+                  </select>
+                </SelectWrapper>
+              )}
               {!!selectedVariant && (
-                <Price>
-                  {selectedVariant?.priceV2.amount}
-                  {'      '}
-                  {selectedVariant?.priceV2.currencyCode}
-                </Price>
+                <>
+                  <Price>
+                    {selectedVariant?.priceV2.amount}
+                    {'      '}
+                    {selectedVariant?.priceV2.currencyCode}
+                    <ProductQuantityAdder
+                      variantId={selectedVariant.id}
+                      available={selectedVariant.available}
+                    />
+                  </Price>
+                </>
               )}
             </>
           )}
         </div>
-
-        <ImageGallery images={props.data.shopifyProduct.images} />
       </Grid>
     </Layout>
   );
