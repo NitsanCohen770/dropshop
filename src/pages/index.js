@@ -3,13 +3,10 @@ import { Layout, SEO, HomepageCollectionGrid } from '../components';
 import ProductContext from '../context/ProductContext';
 const IndexPage = () => {
   const { collections } = useContext(ProductContext);
+  console.log(collections);
   return (
     <Layout>
-      <HomepageCollectionGrid
-        collections={collections.filter(
-          collection => collection.title !== 'Featured products on our store'
-        )}
-      />
+      <HomepageCollectionGrid collections={collections} />
     </Layout>
   );
 };

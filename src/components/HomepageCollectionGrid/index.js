@@ -1,6 +1,7 @@
 import React from 'react';
 import { CollectionTile } from '../CollectionTile';
 export const HomepageCollectionGrid = ({ collections }) => {
+  console.log(collections);
   return (
     <div>
       {collections.map(collection => (

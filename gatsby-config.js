@@ -5,8 +5,8 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     title: `Gatsby Shopify Starter`,
-    description: `Gatsby & Shopify Starter for the WebDevEducation course.`,
-    author: `@tomphill`,
+    description: `This is a store that connects to the shopify API`,
+    author: `@nitsancohen770`,
   },
   plugins: [
     `gatsby-plugin-styled-components`,
@@ -29,7 +29,7 @@ module.exports = {
       options: {
         shopName: process.env.GATSBY_SHOP_NAME,
         accessToken: process.env.GATSBY_ACCESS_TOKEN,
-        apiVersion: '2020-07',
+        apiVersion: '2021-04',
       },
     },
     `gatsby-plugin-react-helmet`,

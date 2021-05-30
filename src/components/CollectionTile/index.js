@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 export const CollectionTile = ({ description, title, backgroundImage }) => {
   return (
@@ -9,5 +8,3 @@ export const CollectionTile = ({ description, title, backgroundImage }) => {
     </div>
   );
 };
-
-CollectionTile.propTypes = {};
