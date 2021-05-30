@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 
 const query = graphql`
   {
-    allShopifyCollection {
+    allShopifyCollection(sort: { fields: title, order: ASC }) {
       edges {
         node {
           products {
@@ -37,6 +37,7 @@ export default ProductContext;
 
 export function ProductContextProvider({ children }) {
   const { allShopifyCollection } = useStaticQuery(query);
+
   return (
     <ProductContext.Provider
       value={{

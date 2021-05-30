@@ -9,4 +9,4 @@ export * from './Cart';
 export * from './CartContent';
 export * from './QuantityAdjuster';
 export * from './RemoveLineItem';
-export * from './HomepageCollectionGrid';
+export * from './HomepageCollectionsGrid';

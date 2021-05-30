@@ -1,6 +1,6 @@
 import React from 'react';
 import { CollectionTile } from '../CollectionTile';
-export const HomepageCollectionGrid = ({ collections }) => {
+export const HomepageCollectionsGrid = ({ collections }) => {
   console.log(collections);
   return (
     <div>
@@ -9,7 +9,7 @@ export const HomepageCollectionGrid = ({ collections }) => {
           key={collection.shopifyId}
           title={collection.title}
           description={collection.description}
-          //   backgroundImage={collection.image.localFile.childImageSharp.fluid}
+          backgroundImage={collection.image.localFile.childImageSharp.fluid.src}
         />
       ))}
     </div>
