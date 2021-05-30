@@ -1,6 +1,6 @@
 import React from 'react';
 import { CollectionTileWrapper } from './styles';
-import { BackgroundImage } from 'gatsby-background-image';
+import BackgroundImage from 'gatsby-background-image';
 export const CollectionTile = ({ description, title, backgroundImage }) => {
   return (
     <CollectionTileWrapper>
