@@ -31,8 +31,14 @@
     "styled-reset": "^4.3.4"
   },
   "devDependencies": {
+    "@babel/core": "^7.14.3",
     "@iconify-icons/fa": "^1.1.0",
     "@iconify/react": "^1.1.4",
+    "@storybook/addon-actions": "^6.2.9",
+    "@storybook/addon-essentials": "^6.2.9",
+    "@storybook/addon-links": "^6.2.9",
+    "@storybook/react": "^6.2.9",
+    "babel-loader": "^8.2.2",
     "prettier": "2.3.0"
   },
   "keywords": [
@@ -46,7 +52,9 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "repository": {
     "type": "git",
